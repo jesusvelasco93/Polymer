@@ -8,20 +8,17 @@
 
 <body>
     <div id="host">
-        <div class="product">
-            <div class="name">Tomate</div>
-            <div class="price">63</div>
-        </div>
-        <div class="product">
-            <div class="name">Arroz</div>
-            <div class="price">95</div>
-        </div>
+        <div class="food meat">Cow</div>
+        <div class="dessert fruit">Orange</div>
+        <div class="food fish">Cod</div>
+        <div class="food fruit">Tomato</div>
+        <div class="food dessert">Bear</div>
     </div>
     <script>
     var host = document.querySelector('#host');
     var root = host.createShadowRoot();
 
-    root.innerHTML = '<content select=".product"></content>';
+    root.innerHTML = /*'<content select=".menu"></content>'*/'The Food is:<content select=".food"></content>The Dessert is:<content select=".dessert"></content>';
     </script>
 </body>
 
