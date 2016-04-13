@@ -7,18 +7,23 @@
 </head>
 
 <body>
-    <div id="host">
-        <div class="food meat">Cow</div>
-        <div class="dessert fruit">Orange</div>
-        <div class="food fish">Cod</div>
-        <div class="food fruit">Tomato</div>
-        <div class="food dessert">Bear</div>
-    </div>
-    <script>
-    var host = document.querySelector('#host');
-    var root = host.createShadowRoot();
+    <template id="news">
+        <img src="">
+        <div class="body"></div>
+    </template>
+    <div id="new-1"></div>
+    <div id="new-2"></div>
 
-    root.innerHTML = /*'<content select=".menu"></content>'*/'The Food is:<content select=".food"></content>The Dessert is:<content select=".dessert"></content>';
+    <script>
+        function createNew(container, image, body) {
+            var root = document.querySelector(container).createShadowRoot();
+            var template = document.querySelector("#news").content;
+            template.querySelector(".body").textContent = body;
+            template.querySelector("img").src = image;
+            root.appendChild(template.cloneNode(true));
+        }
+        createNew("#new-1", 'imagen.png', 'noticia 1');
+        createNew("#new-2", 'imagen.png', 'noticia 2');
     </script>
 </body>
 
