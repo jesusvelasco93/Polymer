@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Contador</title>
 </head>
+
 <body>
     <div id="host">
-        <div class="name">Jesus</div>
-        <div class="twitter">Jesus93</div>
+        <div class="product">
+            <div class="name">Tomate</div>
+            <div class="price">63</div>
+        </div>
+        <div class="product">
+            <div class="name">Arroz</div>
+            <div class="price">95</div>
+        </div>
     </div>
     <script>
-        var host = document.querySelector('#host');
-        var root = host.createShadowRoot();
+    var host = document.querySelector('#host');
+    var root = host.createShadowRoot();
 
-        root.innerHTML = '<style>.name{ color: red; }</style><div class="name"><content></content></div>';
+    root.innerHTML = '<content select=".product"></content>';
     </script>
 </body>
+
 </html>
