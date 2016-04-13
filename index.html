@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador</title>
+</head>
+<body>
+    <div id="host">
+        Oh god!
+    </div>
+    <script>
+        var host = document.querySelector('#host');
+        var root = host.createShadowRoot();
+        root.innerHTML = '<button id="btnDw">Down</button><span id="spam">0</span><button id="btnUp">Uper</button>';
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
