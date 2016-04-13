@@ -10,9 +10,12 @@
     </div>
     <script>
         var host = document.querySelector('#host');
-        var root = host.createShadowRoot();
-        root.innerHTML = '<button id="btnDw">Down</button><span id="spam">0</span><button id="btnUp">Uper</button>';
+        var root1 = host.createShadowRoot();
+        var root2 = host.createShadowRoot();
+        var root3 = host.createShadowRoot();
+        root1.innerHTML = 'Contenido capa 1';
+        root2.innerHTML = 'Contenido capa 2';
+        root3.innerHTML = 'Contenido capa 3';
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
