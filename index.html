@@ -10,12 +10,14 @@
     </div>
     <script>
         var host = document.querySelector('#host');
-        var root1 = host.createShadowRoot();
-        var root2 = host.createShadowRoot();
-        var root3 = host.createShadowRoot();
-        root1.innerHTML = 'Contenido capa 1';
-        root2.innerHTML = 'Contenido capa 2 <shadow></shadow>';
-        root3.innerHTML = 'Contenido capa 3 <shadow></shadow>';
+        var root = host.createShadowRoot();
+
+        root.innerHTML = 'Antes de entrar al interior..' + '<div id="host2">Oh dog!</div>' + '...después de entrar al interior';
+
+        var host2 = root.querySelector('#host2');
+        var root2 = host2.createShadowRoot();
+        root2.innerHTML = 'En lo más profundo..';
+
     </script>
 </body>
 </html>
