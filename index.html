@@ -6,18 +6,14 @@
 </head>
 <body>
     <div id="host">
-        Oh god!
+        <div class="name">Jesus</div>
+        <div class="twitter">Jesus93</div>
     </div>
     <script>
         var host = document.querySelector('#host');
         var root = host.createShadowRoot();
 
-        root.innerHTML = 'Antes de entrar al interior..' + '<div id="host2">Oh dog!</div>' + '...después de entrar al interior';
-
-        var host2 = root.querySelector('#host2');
-        var root2 = host2.createShadowRoot();
-        root2.innerHTML = 'En lo más profundo..';
-
+        root.innerHTML = '<style>.name{ color: red; }</style><div class="name"><content></content></div>';
     </script>
 </body>
 </html>
