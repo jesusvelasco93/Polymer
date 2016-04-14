@@ -7,33 +7,24 @@
 </head>
 
 <body>
-    <template id="news">
-        <img src="">
-        <div class="body"></div>
-    </template>
-
-    <wc-foo id="new-1">
-        <wc-image>http://localhost:8000/image.png</wc-image>
-        <wc-body>Noticia 1</wc-body>
-    </wc-foo>
-
-    <wc-foo id="new-2">
-        <wc-image>http://localhost:8000/image.png</wc-image>
-        <wc-body>Noticia 2</wc-body>
-    </wc-foo>
+    <button is="wc-button">Clickea</button>
     <script>
-    var p = Object.create(HTMLElement.prototype);
-    p.createdCallback = function() {
-            var root = this.createShadowRoot();
-            var template = document.querySelector("#news").content;
-            template.querySelector("img").src = this.querySelector('wc-image').textContent;
-            template.querySelector(".body").textContent = this.querySelector('wc-body').textContent;
-            root.appendChild(template.cloneNode(true));
-        };
-        /*var Foo = */document.registerElement(
-            'wc-foo', {
-            prototype: p
+    var btn = Object.create(HTMLButtonElement.prototype);
+    btn.createdCallback = function() {
+        this.addEventListener("click", function(){
+            console.log("Ha hecho click");
         });
+        // var root = this.createShadowRoot();
+        // var template = document.querySelector("#news").content;
+        // template.querySelector("img").src = this.querySelector('wc-image').textContent;
+        // template.querySelector(".body").textContent = this.querySelector('wc-body').textContent;
+        // root.appendChild(template.cloneNode(true));
+    };
+    /*var Foo = */document.registerElement(
+        'wc-button', {
+        extends: 'button',
+        prototype: btn
+    });
     </script>
 </body>
 
