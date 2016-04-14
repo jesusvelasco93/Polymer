@@ -11,19 +11,29 @@
         <img src="">
         <div class="body"></div>
     </template>
-    <div id="new-1"></div>
-    <div id="new-2"></div>
 
+    <wc-foo id="new-1">
+        <wc-image>http://localhost:8000/image.png</wc-image>
+        <wc-body>Noticia 1</wc-body>
+    </wc-foo>
+
+    <wc-foo id="new-2">
+        <wc-image>http://localhost:8000/image.png</wc-image>
+        <wc-body>Noticia 2</wc-body>
+    </wc-foo>
     <script>
-        function createNew(container, image, body) {
-            var root = document.querySelector(container).createShadowRoot();
+    var p = Object.create(HTMLElement.prototype);
+    p.createdCallback = function() {
+            var root = this.createShadowRoot();
             var template = document.querySelector("#news").content;
-            template.querySelector(".body").textContent = body;
-            template.querySelector("img").src = image;
+            template.querySelector("img").src = this.querySelector('wc-image').textContent;
+            template.querySelector(".body").textContent = this.querySelector('wc-body').textContent;
             root.appendChild(template.cloneNode(true));
-        }
-        createNew("#new-1", 'imagen.png', 'noticia 1');
-        createNew("#new-2", 'imagen.png', 'noticia 2');
+        };
+        /*var Foo = */document.registerElement(
+            'wc-foo', {
+            prototype: p
+        });
     </script>
 </body>
 
