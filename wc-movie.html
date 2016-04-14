@@ -1,6 +1,7 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+
 <dom-module id="wc-movies">
-    <template id="news">
+    <template>
         <style>
         .web {
             padding: 20px;
@@ -33,9 +34,9 @@
                 </div>
                 <div><img src="{{image}}" /></div>
                 <div class="buttons">
-                    <button id="1">15:00</button>
-                    <button id="2">17:30</button>
-                    <button id="3">20:00</button>
+                    <button id="button1" value="15:00">15:00</button>
+                    <button id="button2" value="17:30">17:30</button>
+                    <button id="button3" value="20:00">20:00</button>
                 </div>
             </div>
         </div>
@@ -71,12 +72,8 @@
                 }
             },
             getCode: function(title, author) {
-                return title + author;
+                return title.substring(0,3) + author.substring(0,3);
             }
-
-            // ready: function() {
-            //     this.querySelector("#1").addEventListener()
-            // }
 
             //"http://localhost:8000/image.png
             //Shadow JS

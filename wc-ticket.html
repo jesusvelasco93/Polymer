@@ -1,0 +1,30 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-ticket">
+    <template>
+        <style></style>
+        <div id="ticket">
+            <div>Pelicula: {{pelicula}} a la Hora: {{hora}} vendido por Taquilla: {{taquilla}}</div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        WCTicket = Polymer({
+            is: 'wc-ticket',
+            properties: {
+                pelicula: {
+                    type: String,
+                    value: 'cias',
+                },
+                taquilla: {
+                    type: String,
+                    value: 'Taq1',
+                },
+                hora: {
+                    type: String,
+                    value: '15:00',
+                }
+            }
+        });
+    })();
+    </script>
+</dom-module>

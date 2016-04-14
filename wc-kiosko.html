@@ -1,0 +1,30 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<link rel="import" href="wc-ticket.html">
+
+<dom-module id="wc-kiosko">
+    <template>
+        <style>
+        .kiosko {
+            padding: 20px;
+            background-color: grey;
+            color: black;
+        }
+        </style>
+        <div class="kiosko">
+            <h1>Kiosko</h1>
+            <div id="kiosko">
+                <wc-ticket></wc-ticket>
+            </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        WCKiosko = Polymer({
+            is: 'wc-kiosko',
+            addTicket: function(ticket){
+                console.log(ticket);
+            },
+        });
+    })();
+    </script>
+</dom-module>

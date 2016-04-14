@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Contador</title>
+    <link rel="import" href="wc-window.html">
+    <link rel="import" href="wc-kiosko.html">
     <link rel="import" href="wc-movie.html">
 </head>
 
 <body>
-    <wc-window>
-        <wc-movies></wc-movies>
-        <wc-movies></wc-movies>
+    <wc-window code="Taq1" kiosko="wc-kiosko">
+            <wc-movies title="Civil War" author="Manolo" year="1993"></wc-movies>
+            <wc-movies title="Ant Man" author="Bombo" year="1996"></wc-movies>
+    </wc-window>
+    <wc-window code="Taq2">
+            <wc-movies title="Civil War" author="Manolo" year="1993"></wc-movies>
+            <wc-movies title="Ant Man" author="Bombo" year="1996"></wc-movies>
     </wc-window>
     <wc-kiosko></wc-kiosko>
 </body>

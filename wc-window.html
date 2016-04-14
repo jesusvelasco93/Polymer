@@ -1,0 +1,56 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+
+<dom-module id="wc-window">
+    <template>
+    <style>
+        .taquilla {
+            width: 50%;
+            padding: 20px;
+            background-color: red;
+            color: black;
+        }
+    </style>
+        <div class="taquilla">
+            <h1>Taquilla: {{code}}</h1>
+            <content></content>
+        </div>
+    </template>
+    <script>
+    (function() {
+        WCWindow = Polymer({
+            is: 'wc-window',
+            properties: {
+                code: {
+                    type: String,
+                    value: 'Taq1',
+                },
+                kiosko: {
+                    type: String,
+                    value: 'Taq1',
+                }
+            },
+            ready: function() {
+                var self = this;
+                Polymer.dom(this).querySelectorAll("wc-movies").forEach(function(movie){
+                    movie.addEventListener("click", function (e){
+                        console.log("Target", e.target, this.title);
+                        var title = movie.title;
+                        var taquilla = self.code;
+                        var time = e.target.value;
+
+                        console.log(title, taquilla, time);
+                        var ticket = new WCTicket();
+                        ticket.pelicula = title;
+                        ticket.hora = time;
+                        ticket.taquilla = taquilla;
+
+                        var kiosko = Polymer.dom(self).parentNode.parentNode.querySelector(self.kiosko);
+                        kiosko.addTicket(ticket);
+                    });
+                });
+            }
+        });
+
+    })();
+    </script>
+</dom-module>
