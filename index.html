@@ -4,28 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Contador</title>
+    <link rel="import" href="wc-movie.html">
 </head>
 
 <body>
-    <button is="wc-button">Clickea</button>
-    <script>
-    var btn = Object.create(HTMLButtonElement.prototype);
-    btn.createdCallback = function() {
-        this.addEventListener("click", function(){
-            console.log("Ha hecho click");
-        });
-        // var root = this.createShadowRoot();
-        // var template = document.querySelector("#news").content;
-        // template.querySelector("img").src = this.querySelector('wc-image').textContent;
-        // template.querySelector(".body").textContent = this.querySelector('wc-body').textContent;
-        // root.appendChild(template.cloneNode(true));
-    };
-    /*var Foo = */document.registerElement(
-        'wc-button', {
-        extends: 'button',
-        prototype: btn
-    });
-    </script>
+    <wc-window>
+        <wc-movies></wc-movies>
+        <wc-movies></wc-movies>
+    </wc-window>
+    <wc-kiosko></wc-kiosko>
 </body>
 
 </html>

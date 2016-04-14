@@ -1,0 +1,88 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-movies">
+    <template id="news">
+        <style>
+        .web {
+            padding: 20px;
+            background-color: black;
+            color: red;
+        }
+        
+        .titles {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .buttons {
+            padding-left: 70px;
+        }
+        </style>
+        <div class="web">
+            <div class="movie">
+                <div>
+                    <p><span class="titles">Titulo:</span><span id="title">{{title}}</span></p>
+                </div>
+                <div>
+                    <p><span class="titles">Autor:</span><span id="author">{{author}}</span></p>
+                </div>
+                <div>
+                    <p><span class="titles">Codigo:</span><span id="author">{{code}}</span></p>
+                </div>
+                <div>
+                    <p><span class="titles">Año:</span><span id="year">{{year}}</span></p>
+                </div>
+                <div><img src="{{image}}" /></div>
+                <div class="buttons">
+                    <button id="1">15:00</button>
+                    <button id="2">17:30</button>
+                    <button id="3">20:00</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </template>
+    <script>
+    (function() {
+        WCMovie = Polymer({
+            is: 'wc-movies',
+            properties: {
+                title: {
+                    type: String,
+                    value: 'Civil War',
+                },
+                author: {
+                    type: String,
+                    value: 'Manolo',
+                },
+                year: {
+                    type: Number,
+                    value: 1993,
+                },
+
+                image: {
+                    type: String,
+                    value: 'http://localhost:8000/image.png',
+                },
+                code: {
+                    type: String,
+                    readOnly: true,
+                    computed: 'getCode(title, author)'
+                }
+            },
+            getCode: function(title, author) {
+                return title + author;
+            }
+
+            // ready: function() {
+            //     this.querySelector("#1").addEventListener()
+            // }
+
+            //"http://localhost:8000/image.png
+            //Shadow JS
+            //http://www.polymer-project.org/1.0/components/webcomponentsjs/webcomponents-lite.js
+        });
+
+    })();
+    </script>
+</dom-module>
