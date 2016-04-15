@@ -3,33 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Contador</title>
-    <link rel="import" href="wc-window.html">
-    <link rel="import" href="wc-kiosko.html">
-    <link rel="import" href="wc-movie.html">
+    <title>Cinebar</title>
+    <link rel="import" href="wc-text.html">
 </head>
 
-<body>
-    <table style="width: 100%;">
-        <tr>
-            <td style="width: 35%;">
-                <wc-window code="Taq1" kiosko="#wc-kiosko-1">
-                    <wc-movies title="Civil War" author="Manolo" year="1993"></wc-movies>
-                    <wc-movies title="Ant Man" author="Bombo" year="1996"></wc-movies>
-                </wc-window>
-            </td>
-            <td style="width: 35%;">
-                <wc-window code="Taq2" kiosko="#wc-kiosko-2">
-                    <wc-movies title="Civil War" author="Manolo" year="1993"></wc-movies>
-                    <wc-movies title="Ant Man" author="Bombo" year="1996"></wc-movies>
-                </wc-window>
-            </td>
-            <td style="width: 30%; position: fixed;">
-                <wc-kiosko id="wc-kiosko-1" numkiosko="1"></wc-kiosko>
-                <wc-kiosko id="wc-kiosko-2" numkiosko="2"></wc-kiosko>
-            </td>
-        </tr>
-    </table>
+<body style="background-image: url(http://localhost:8000/bg.jpg);">
+    <wc-text></wc-text>
 </body>
 
 </html>

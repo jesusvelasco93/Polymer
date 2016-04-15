@@ -1,9 +1,13 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
 <dom-module id="wc-ticket">
     <template>
-        <style></style>
+        <style>
+        .content{
+            color:white;
+        }
+        </style>
         <div id="ticket">
-            <div>Pelicula: {{pelicula}} a la Hora: {{hora}} vendido por Taquilla: {{taquilla}}</div>
+            <div class="content">Pelicula: {{pelicula}} a la Hora: {{hora}} vendido por Taquilla: {{taquilla}}</div>
         </div>
     </template>
     <script>

@@ -16,7 +16,14 @@
         }
         
         .buttons {
-            padding-left: 70px;
+            text-align: center;
+        }
+        .div-img {
+            text-align: center;
+        }
+        .img {
+            width: 300px;
+            height: 200px;
         }
         </style>
         <div class="web">
@@ -33,11 +40,11 @@
                 <div>
                     <p><span class="titles">Año:</span><span id="year">{{year}}</span></p>
                 </div>
-                <div><img src="{{image}}" /></div>
+                <div class="div-img"><img class="img" src="{{image}}" /></div>
                 <div class="buttons">
-                    <button id="button1" value="15:00">15:00</button>
-                    <button id="button2" value="17:30">17:30</button>
-                    <button id="button3" value="20:00">20:00</button>
+                    <button id="btn" on-tap="onBtnTap" value="15:00">15:00</button>
+                    <button id="btn" on-tap="onBtnTap" value="17:30">17:30</button>
+                    <button id="btn" on-tap="onBtnTap" value="20:00">20:00</button>
                 </div>
             </div>
         </div>
@@ -70,15 +77,23 @@
                     type: String,
                     readOnly: true,
                     computed: 'getCode(title, author)'
-                }
+                },
+                listeners: {
+                    'tap': 'onTap',
+                },
+
             },
             getCode: function(title, author) {
                 return title.substring(0, 3) + author.substring(0, 3);
+            },
+            onTap: function(e) {
+                console.log("Tap", e)
+            },
+            onBtnTap: function(e) {
+                e.stopPropagation();
+                this.fire ('action', {title:this.title, time:e.target.value});
             }
 
-            //"http://localhost:8000/image.png
-            //Shadow JS
-            //http://www.polymer-project.org/1.0/components/webcomponentsjs/webcomponents-lite.js
         });
 
     })();

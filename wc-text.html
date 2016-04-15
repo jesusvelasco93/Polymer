@@ -1,0 +1,47 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<link rel="import" href="wc-window.html">
+<link rel="import" href="wc-kiosko.html">
+<link rel="import" href="wc-movie.html">
+<dom-module id="wc-text">
+    <template>
+        <style>
+
+        </style>
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 35%;">
+                    <wc-window code="Taq1" kiosko="{{kiosko}}">
+                        <wc-movies title="Civil War" author="Manolo" year="1993" image="http://localhost:8000/cw.jpg"></wc-movies>
+                        <wc-movies title="Ant Man" author="Bombo" year="1996" image="http://localhost:8000/am.jpg"></wc-movies>
+                    </wc-window>
+                </td>
+                <td style="width: 35%;">
+                    <wc-window code="Taq2" kiosko="{{kiosko}}">
+                        <wc-movies title="Batman vs Superman" author="Pepe" year="1980" image="http://localhost:8000/bs.jpg"></wc-movies>
+                        <wc-movies title="Patrulla canina" author="Cocinas" year="1974" image="http://localhost:8000/pc.jpg"></wc-movies>
+                    </wc-window>
+                </td>
+                <td style="width: 30%; position: fixed;">
+                    <wc-kiosko id="kiosko1" numkiosko="1"></wc-kiosko>
+                    <!--                     <wc-kiosko id="wc-kiosko-2" numkiosko="2"></wc-kiosko> -->
+                </td>
+            </tr>
+        </table>
+    </template>
+    <script>
+    (function() {
+        WCText = Polymer({
+            is: 'wc-text',
+            properties: {
+                kiosko: {
+                    type: Object,
+                }
+            },
+            ready: function() {
+                console.log(this.$.kiosko1);
+                this.kiosko = this.$.kiosko1;
+            }
+        });
+    })();
+    </script>
+</dom-module>
