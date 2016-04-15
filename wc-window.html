@@ -1,17 +1,17 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
-
 <dom-module id="wc-window">
     <template>
-    <style>
+        <style>
         .taquilla {
-            width: 50%;
+            border: 5px solid black;
+            border-radius: 10px;
             padding: 20px;
             background-color: red;
             color: black;
         }
-    </style>
+        </style>
         <div class="taquilla">
-            <h1>Taquilla: {{code}}</h1>
+            <h1><u>Taquilla: {{code}}</u></h1>
             <content></content>
         </div>
     </template>
@@ -26,13 +26,13 @@
                 },
                 kiosko: {
                     type: String,
-                    value: 'Taq1',
+                    value: 'ggf',
                 }
             },
             ready: function() {
                 var self = this;
-                Polymer.dom(this).querySelectorAll("wc-movies").forEach(function(movie){
-                    movie.addEventListener("click", function (e){
+                Polymer.dom(this).querySelectorAll("wc-movies").forEach(function(movie) {
+                    movie.addEventListener("click", function(e) {
                         console.log("Target", e.target, this.title);
                         var title = movie.title;
                         var taquilla = self.code;

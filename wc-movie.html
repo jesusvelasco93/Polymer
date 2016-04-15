@@ -1,9 +1,10 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
-
 <dom-module id="wc-movies">
     <template>
         <style>
         .web {
+            border: 5px solid #FF8900;
+            border-radius: 50px;
             padding: 20px;
             background-color: black;
             color: red;
@@ -72,7 +73,7 @@
                 }
             },
             getCode: function(title, author) {
-                return title.substring(0,3) + author.substring(0,3);
+                return title.substring(0, 3) + author.substring(0, 3);
             }
 
             //"http://localhost:8000/image.png
