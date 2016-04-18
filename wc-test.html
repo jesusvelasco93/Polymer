@@ -6,20 +6,21 @@
 <dom-module id="wc-text">
     <template>
         <style>
-        .table{
+        .table {
             width: 100%;
         }
-        .td-taquilla{
+        
+        .td-taquilla {
             width: 35%;
         }
-        .td-kiosko{
-            width: 30%; 
+        
+        .td-kiosko {
+            width: 30%;
             position: fixed;
         }
-
         </style>
         <wc-cinema moviesa="{{moviesa}}" moviesb="{{moviesb}}"></wc-cinema>
-        <table class="table">
+        <table id="table" class="table">
             <tr>
                 <td class="td-taquilla">
                     <wc-window code="Taq1" kiosko="{{kiosko1}}" movies="[[moviesa]]"></wc-window>
@@ -35,6 +36,7 @@
         </table>
     </template>
     <script>
+
     (function() {
         WCText = Polymer({
             is: 'wc-text',
@@ -48,6 +50,7 @@
             },
             ready: function() {
                 // console.log("TEST", this.moviesa, this.moviesb);
+                console.log(this.kiosko1, this.$.kiosko1);
                 this.kiosko1 = this.$.kiosko1;
                 this.kiosko2 = this.$.kiosko2;
             }
