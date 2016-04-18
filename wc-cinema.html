@@ -1,0 +1,54 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-cinema">
+    <template>
+        <style></style>
+    </template>
+    <script>
+    (function() {
+        WCCinema = Polymer({
+            is: 'wc-cinema',
+            properties: {
+                moviesa: {
+                    type: Array,
+                    value: function() {
+                        return []
+                    },
+                    notify: true
+                },
+                moviesb: {
+                    type: Array,
+                    value: function() {
+                        return []
+                    },
+                    notify: true
+                }
+            },
+            ready: function() {
+                this.moviesa = [{
+                    title: "Civil War",
+                    author: "Manolo",
+                    year: "1993",
+                    image: "http://localhost:8000/images/cw.jpg"
+                }, {
+                    title: "Ant Man",
+                    author: "Bombo",
+                    year: "1996",
+                    image: "http://localhost:8000/images/am.jpg"
+                }];
+                this.moviesb = [{
+                    title: "Batman vs Superman",
+                    author: "Pepe",
+                    year: "1980",
+                    image: "http://localhost:8000/images/bs.jpg"
+                }, {
+                    title: "Patrulla canina",
+                    author: "Pepe",
+                    year: "1974",
+                    image: "http://localhost:8000/images/pc.jpg"
+                }];
+                // console.log("CINEMA", this.moviesa, this.moviesb);
+            }
+        });
+    })();
+    </script>
+</dom-module>

@@ -2,6 +2,7 @@
 <link rel="import" href="wc-window.html">
 <link rel="import" href="wc-kiosko.html">
 <link rel="import" href="wc-movie.html">
+<link rel="import" href="wc-cinema.html">
 <dom-module id="wc-text">
     <template>
         <style>
@@ -17,19 +18,14 @@
         }
 
         </style>
+        <wc-cinema moviesa="{{moviesa}}" moviesb="{{moviesb}}"></wc-cinema>
         <table class="table">
             <tr>
                 <td class="td-taquilla">
-                    <wc-window code="Taq1" kiosko="{{kiosko1}}">
-                        <wc-movies title="Civil War" author="Manolo" year="1993" image="http://localhost:8000/images/cw.jpg"></wc-movies>
-                        <wc-movies title="Ant Man" author="Bombo" year="1996" image="http://localhost:8000/images/am.jpg"></wc-movies>
-                    </wc-window>
+                    <wc-window code="Taq1" kiosko="{{kiosko1}}" movies="[[moviesa]]"></wc-window>
                 </td>
                 <td class="td-taquilla">
-                    <wc-window code="Taq2" kiosko="{{kiosko2}}">
-                        <wc-movies title="Batman vs Superman" author="Pepe" year="1980" image="http://localhost:8000/images/bs.jpg"></wc-movies>
-                        <wc-movies title="Patrulla canina" author="Cocinas" year="1974" image="http://localhost:8000/images/pc.jpg"></wc-movies>
-                    </wc-window>
+                    <wc-window code="Taq2" kiosko="{{kiosko2}}" movies="[[moviesb]]"></wc-window>
                 </td>
                 <td class="td-kiosko">
                     <wc-kiosko id="kiosko1" numkiosko="1"></wc-kiosko>
@@ -51,7 +47,7 @@
                 }
             },
             ready: function() {
-                console.log(this.$.kiosko1);
+                // console.log("TEST", this.moviesa, this.moviesb);
                 this.kiosko1 = this.$.kiosko1;
                 this.kiosko2 = this.$.kiosko2;
             }

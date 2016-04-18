@@ -1,5 +1,6 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
 <dom-module id="wc-window">
+
     <template>
         <style>
         .taquilla {
@@ -12,7 +13,9 @@
         </style>
         <div class="taquilla">
             <h1><u>Taquilla: {{code}}</u></h1>
-            <content></content>
+            <template is="dom-repeat" items="{{movies}}" as="movie">
+                <wc-movies title={{movie.title}} author={{movie.author}} year={{movie.year}} image={{movie.image}}></wc-movies>
+            </template> 
         </div>
     </template>
     <script>
@@ -27,11 +30,18 @@
                 kiosko: {
                     type: Object,
                 },
+                movies: {
+                    type: Array,
+                    value: function(){
+                        return []
+                    },
+                    notify: false
+                }
             },
             ready: function() {
                 var self = this;
                 self.addEventListener("action", function(e, detail) {
-                    console.log(detail);
+                    // console.log(detail);
                     var title = e.detail.title;
                     var taquilla = self.code;
                     var time = e.detail.time;
