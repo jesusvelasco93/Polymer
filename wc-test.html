@@ -1,8 +1,9 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
 <link rel="import" href="wc-window.html">
 <link rel="import" href="wc-kiosko.html">
-<link rel="import" href="wc-movie.html">
 <link rel="import" href="wc-cinema.html">
+<link rel="import" href="wc-movie.html">
+
 <dom-module id="wc-text">
     <template>
         <style>
@@ -17,6 +18,16 @@
         .td-kiosko {
             width: 30%;
             position: fixed;
+        }
+        
+        .div-button {
+            text-align: center;
+        }
+        
+        .button {
+            width: 90%;
+            height: 25px;
+            font-size: 20px;
         }
         </style>
         <wc-cinema moviesa="{{moviesa}}" moviesb="{{moviesb}}"></wc-cinema>
@@ -33,10 +44,16 @@
                     <wc-kiosko id="kiosko2" numkiosko="2"></wc-kiosko>
                 </td>
             </tr>
+<!--             <tr>
+                <wc-movies title={{movie.title}} author={{movie.author}} year={{movie.year}} image={{movie.image}}></wc-movies>
+                <button class="button" id="btn" on-tap="onBtnTapSiguiente" value="0"><b>Siguiente<b></button>
+            </tr> -->
         </table>
+        <div class="div-button">
+            <button class="button" id="btn" on-tap="onBtnTap" value="1"><b>Cambiar de lado<b></button>
+        </div>
     </template>
     <script>
-
     (function() {
         WCText = Polymer({
             is: 'wc-text',
@@ -46,14 +63,54 @@
                 },
                 kiosko2: {
                     type: Object,
-                }
+                },
+                // listeners: {
+                //     'tap': 'onTap',
+                // },
+                moviesa: {
+                    type: Array,
+                    // value: this.moviesa,
+                    notify: true
+                },
+                moviesb: {
+                    type: Array,
+                    // value: this.moviesb,
+                    notify: true
+                },
+ /*               movie: {
+                    type: Object,
+                }*/
             },
             ready: function() {
                 // console.log("TEST", this.moviesa, this.moviesb);
-                console.log(this.kiosko1, this.$.kiosko1);
                 this.kiosko1 = this.$.kiosko1;
                 this.kiosko2 = this.$.kiosko2;
-            }
+
+                console.log(this.moviesa[0]);
+                this.movie = this.moviesa[0];
+            },
+            onTap: function(e) {
+                console.log("Tap", e)
+            },
+            onBtnTap: function(e) {
+                e.stopPropagation();
+                var movies = this.moviesa;
+                this.moviesa = this.moviesb;
+                this.moviesb = movies;
+                // this.fire ('change', {title:this.title, time:e.target.value});
+            },
+/*            onBtnTapSiguiente: function(e) {
+                e.stopPropagation();
+                var numPos = parseInt(e.target.value) + 1 || 1;
+                console.log(numPos, e.target.value, this.moviesa.length);
+                if (numPos < this.moviesa.length){
+                    e.target.value = numPos;
+                }
+                else{
+                    e.target.value = 0;
+                }
+                this.movie = this.moviesa[e.target.value];
+            }*/
         });
     })();
     </script>
