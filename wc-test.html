@@ -31,8 +31,8 @@
         }
         </style>
         <wc-selector key="movies" data={{movies}}>
-            <wc-cinema movies="{{moviesa}}"></wc-cinema>
-            <wc-cinema movies="{{moviesb}}"></wc-cinema>
+            <wc-cinema id="1" movies="{{moviesa}}"></wc-cinema>
+            <wc-cinema id="2" movies="{{moviesb}}"></wc-cinema>
         </wc-selector>
         <table id="table" class="table">
             <tr>
@@ -69,12 +69,13 @@
                 // },
                 movies: {
                     type: Array,
-                    // value: this.moviesb,
+                    value: this.moviesa,
                     notify: true
                 },
             },
             ready: function() {
-                // console.log("TEST", this.moviesa, this.moviesb);
+                console.log("TEST", this.moviesa, this.moviesb);
+                this.movies = this.moviesa;
                 this.kiosko1 = this.$.kiosko1;
                 this.kiosko2 = this.$.kiosko2;
             },

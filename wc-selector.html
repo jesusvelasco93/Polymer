@@ -27,7 +27,7 @@
                 },
                 data: {
                     type: Array,
-                    // value: this.moviesb,
+                    //value: this.moviesb,
                     notify: true
                 },
                 selected: {
@@ -35,9 +35,10 @@
                     value: 0
                 }
             },
-            // ready: function() {
-
-            // },
+            /*ready: function() {
+                console.log(Polymer.dom(this).children[this.selected].movies);
+                this.data = Polymer.dom(this).children[this.selected].movies;
+            },*/
             onBtnTap: function(e) {
                 e.stopPropagation();
                 // console.log(Polymer.dom(this).children);
@@ -46,7 +47,8 @@
                 console.log("SELECTED", this.selected);
                 var a = Polymer.dom(this).children;
                 console.log(Polymer.dom(this).children);
-                this.movies = Polymer.dom(this).children[this.selected].movies;
+                this.data = Polymer.dom(this).children[this.selected].movies;
+                console.log("SELECTED MOVIES", this.data);
                 // this.fire ('change', {title:this.title, time:e.target.value});
             },
         });
