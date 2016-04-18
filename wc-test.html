@@ -2,7 +2,7 @@
 <link rel="import" href="wc-window.html">
 <link rel="import" href="wc-kiosko.html">
 <link rel="import" href="wc-cinema.html">
-<link rel="import" href="wc-movie.html">
+<link rel="import" href="wc-selector.html">
 
 <dom-module id="wc-text">
     <template>
@@ -30,14 +30,17 @@
             font-size: 20px;
         }
         </style>
-        <wc-cinema moviesa="{{moviesa}}" moviesb="{{moviesb}}"></wc-cinema>
+        <wc-selector key="movies" data={{movies}}>
+            <wc-cinema movies="{{moviesa}}"></wc-cinema>
+            <wc-cinema movies="{{moviesb}}"></wc-cinema>
+        </wc-selector>
         <table id="table" class="table">
             <tr>
                 <td class="td-taquilla">
-                    <wc-window code="Taq1" kiosko="{{kiosko1}}" movies="[[moviesa]]"></wc-window>
+                    <wc-window code="Taq1" kiosko="{{kiosko1}}" movies="[[movies]]"></wc-window>
                 </td>
                 <td class="td-taquilla">
-                    <wc-window code="Taq2" kiosko="{{kiosko2}}" movies="[[moviesb]]"></wc-window>
+                    <wc-window code="Taq2" kiosko="{{kiosko2}}" movies="[[movies]]"></wc-window>
                 </td>
                 <td class="td-kiosko">
                     <wc-kiosko id="kiosko1" numkiosko="1"></wc-kiosko>
@@ -49,9 +52,6 @@
                 <button class="button" id="btn" on-tap="onBtnTapSiguiente" value="0"><b>Siguiente<b></button>
             </tr> -->
         </table>
-        <div class="div-button">
-            <button class="button" id="btn" on-tap="onBtnTap" value="1"><b>Cambiar de lado<b></button>
-        </div>
     </template>
     <script>
     (function() {
@@ -67,37 +67,16 @@
                 // listeners: {
                 //     'tap': 'onTap',
                 // },
-                moviesa: {
-                    type: Array,
-                    // value: this.moviesa,
-                    notify: true
-                },
-                moviesb: {
+                movies: {
                     type: Array,
                     // value: this.moviesb,
                     notify: true
                 },
- /*               movie: {
-                    type: Object,
-                }*/
             },
             ready: function() {
                 // console.log("TEST", this.moviesa, this.moviesb);
                 this.kiosko1 = this.$.kiosko1;
                 this.kiosko2 = this.$.kiosko2;
-
-                console.log(this.moviesa[0]);
-                this.movie = this.moviesa[0];
-            },
-            onTap: function(e) {
-                console.log("Tap", e)
-            },
-            onBtnTap: function(e) {
-                e.stopPropagation();
-                var movies = this.moviesa;
-                this.moviesa = this.moviesb;
-                this.moviesb = movies;
-                // this.fire ('change', {title:this.title, time:e.target.value});
             },
 /*            onBtnTapSiguiente: function(e) {
                 e.stopPropagation();
