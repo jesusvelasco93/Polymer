@@ -30,17 +30,17 @@
             font-size: 20px;
         }
         </style>
-        <wc-selector key="movies" data={{movies}}>
+        <wc-selector key="movies" data={{moviesc}} datb={{moviesd}}>
             <wc-cinema id="1" movies="{{moviesa}}"></wc-cinema>
             <wc-cinema id="2" movies="{{moviesb}}"></wc-cinema>
         </wc-selector>
         <table id="table" class="table">
             <tr>
                 <td class="td-taquilla">
-                    <wc-window code="Taq1" kiosko="{{kiosko1}}" movies="[[movies]]"></wc-window>
+                    <wc-window code="Taq1" kiosko="{{kiosko1}}" movies="[[moviesc]]"></wc-window>
                 </td>
                 <td class="td-taquilla">
-                    <wc-window code="Taq2" kiosko="{{kiosko2}}" movies="[[movies]]"></wc-window>
+                    <wc-window code="Taq2" kiosko="{{kiosko2}}" movies="[[moviesd]]"></wc-window>
                 </td>
                 <td class="td-kiosko">
                     <wc-kiosko id="kiosko1" numkiosko="1"></wc-kiosko>
@@ -74,7 +74,7 @@
                 },
             },
             ready: function() {
-                console.log("TEST", this.moviesa, this.moviesb);
+                // console.log("TEST", this.moviesa, this.moviesb);
                 // this.movies = this.moviesa;
                 this.kiosko1 = this.$.kiosko1;
                 this.kiosko2 = this.$.kiosko2;
