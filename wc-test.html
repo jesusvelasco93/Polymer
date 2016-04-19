@@ -19,15 +19,13 @@
             width: 30%;
             position: fixed;
         }
-        
-        .div-button {
+        .div-button{
             text-align: center;
         }
-        
-        .button {
-            width: 90%;
-            height: 25px;
-            font-size: 20px;
+        :host {
+            --color: white;
+            --background-color: black;
+            --border-color: grey
         }
         </style>
         <wc-selector key="movies" data={{moviesc}} datb={{moviesd}}>
@@ -47,10 +45,9 @@
                     <wc-kiosko id="kiosko2" numkiosko="2"></wc-kiosko>
                 </td>
             </tr>
-<!--             <tr>
-                <wc-movies title={{movie.title}} author={{movie.author}} year={{movie.year}} image={{movie.image}}></wc-movies>
-                <button class="button" id="btn" on-tap="onBtnTapSiguiente" value="0"><b>Siguiente<b></button>
-            </tr> -->
+            <div class="div-button">
+                <button class="button" id="btn" on-tap="onBtnTapSiguiente" value="0"><b>Siguiente Color<b></button>       
+            </div>
         </table>
     </template>
     <script>
@@ -79,18 +76,20 @@
                 this.kiosko1 = this.$.kiosko1;
                 this.kiosko2 = this.$.kiosko2;
             },
-/*            onBtnTapSiguiente: function(e) {
+            onBtnTapSiguiente: function(e) {
                 e.stopPropagation();
-                var numPos = parseInt(e.target.value) + 1 || 1;
-                console.log(numPos, e.target.value, this.moviesa.length);
-                if (numPos < this.moviesa.length){
-                    e.target.value = numPos;
+                var value = e.target.value || 0;
+                if (value == 0){
+                    e.target.value = 1;
+                    this.customStyle['--color'] = 'blue';
+                    this.updateStyles(); 
                 }
                 else{
                     e.target.value = 0;
+                    this.customStyle['--color'] = 'white';
+                    this.updateStyles(); 
                 }
-                this.movie = this.moviesa[e.target.value];
-            }*/
+            }
         });
     })();
     </script>
