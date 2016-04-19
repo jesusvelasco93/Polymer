@@ -35,10 +35,12 @@
                     value: 0
                 }
             },
-            /*ready: function() {
-                console.log(Polymer.dom(this).children[this.selected].movies);
-                this.data = Polymer.dom(this).children[this.selected].movies;
-            },*/
+            ready: function() {
+                this.async(function(){
+                    console.log(Polymer.dom(this).children[this.selected].movies);
+                    this.data = Polymer.dom(this).children[this.selected].movies;
+                }, 500);
+            },
             onBtnTap: function(e) {
                 e.stopPropagation();
                 // console.log(Polymer.dom(this).children);
